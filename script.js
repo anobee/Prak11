@@ -1,27 +1,25 @@
-document.getElementById("formTugas").addEventListener("submit", function(event) {
-    event.preventDefault();
+function tampilkanData() {
+  // Ambil nilai dari input
+  const nama = document.getElementById("name").value;
+  const gender = document.getElementById("gender").value;
+  const jurusan = document.getElementById("jurusan").value;
+  const birthdate = document.getElementById("birthdate").value;
 
-    const jurusan = document.getElementById("jurusan").value;
-    const tanggalInput = document.getElementById("tanggal").value;
-    const hasil = document.getElementById("hasil");
+  // Validasi sederhana
+  if (!nama || !gender || !jurusan || !birthdate) {
+    alert("Harap lengkapi semua data terlebih dahulu!");
+    return;
+  }
 
-    if (jurusan === "" || tanggalInput === "") {
-        hasil.innerHTML = "<p style='color:red;'>Harap isi semua data terlebih dahulu.</p>";
-        return;
-    }
+  // Format hasil output
+  const hasilHTML = `
+    <h3>Data Mahasiswa:</h3>
+    <p><strong>Nama:</strong> ${nama}</p>
+    <p><strong>Jenis Kelamin:</strong> ${gender}</p>
+    <p><strong>Jurusan:</strong> ${jurusan}</p>
+    <p><strong>Tanggal Lahir:</strong> ${birthdate}</p>
+  `;
 
-    // Format tanggal ke format lokal Indonesia (1 Juni 2025)
-    const tanggalFormatted = new Date(tanggalInput).toLocaleDateString("id-ID", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-    });
-
-    hasil.innerHTML = `
-        <p><strong>Jurusan yang dipilih:</strong> ${jurusan}</p>
-        <p><strong>Tanggal yang dipilih:</strong> ${tanggalFormatted}</p>
-    `;
-
-    // Optional: reset form setelah submit
-    document.getElementById("formTugas").reset();
-});
+  // Tampilkan hasil di elemen dengan id="hasil"
+  document.getElementById("hasil").innerHTML = hasilHTML;
+}
