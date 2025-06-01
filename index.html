@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas 12 - HTML DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Form Pilihan Jurusan & Tanggal</h2>
+        <form id="formTugas">
+            <label for="jurusan">Pilih Jurusan:</label>
+            <select id="jurusan" name="jurusan">
+                <option value="">-- Pilih --</option>
+                <option value="Informatika">Informatika</option>
+                <option value="Sistem Informasi">Sistem Informasi</option>
+                <option value="Teknik Komputer">Teknik Komputer</option>
+            </select>
+
+            <label for="tanggal">Pilih Tanggal:</label>
+            <input type="date" id="tanggal" name="tanggal">
+
+            <button type="submit">Tampilkan Data</button>
+        </form>
+
+        <div id="hasil" class="output"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
